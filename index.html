@@ -1,23 +1,447 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>สวัสดีจาก GitHub Pages</title>
-  <style>
-    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:#0e1116;color:#e8eaed}
-    .wrap{max-width:860px;margin:0 auto;padding:40px 16px}
-    .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px}
-    a{color:#8ad}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อาจารย์ดวงทิพย์ รับพรดี - เทคโนโลยีมัลติมีเดีย</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Sarabun', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .section-fade { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+        .section-fade.visible { opacity: 1; transform: translateY(0); }
+    </style>
 </head>
-<body>
-  <div class="wrap">
-    <h1>เว็บแรกของฉัน 🎉</h1>
-    <p>แก้ <code>index.html</code> แล้วกด Commit → เว็บไซต์จะอัปเดตอัตโนมัติ</p>
-    <div class="card">
-      <p>ยินดีต้อนรับสู่ GitHub Pages!</p>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <div class="w-32 h-32 bg-white rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
+                <span class="text-6xl">👩‍🏫</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">นางสาวดวงทิพย์ รับพรดี</h1>
+            <p class="text-xl md:text-2xl mb-2 opacity-90">อาจารย์ประจำสาขาวิชาเทคโนโลยีมัลติมีเดีย</p>
+            <p class="text-lg opacity-80">คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏเทพสตรี</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8 py-4">
+                <button onclick="scrollToSection('profile')" class="nav-btn px-4 py-2 text-gray-700 hover:text-purple-600 font-medium transition-colors">ประวัติบุคคล</button>
+                <button onclick="scrollToSection('education')" class="nav-btn px-4 py-2 text-gray-700 hover:text-purple-600 font-medium transition-colors">การศึกษา</button>
+                <button onclick="scrollToSection('experience')" class="nav-btn px-4 py-2 text-gray-700 hover:text-purple-600 font-medium transition-colors">ประสบการณ์</button>
+                <button onclick="scrollToSection('lectures')" class="nav-btn px-4 py-2 text-gray-700 hover:text-purple-600 font-medium transition-colors">การบรรยาย</button>
+                <button onclick="scrollToSection('contact')" class="nav-btn px-4 py-2 text-gray-700 hover:text-purple-600 font-medium transition-colors">ติดต่อ</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 py-12">
+        <!-- Profile Section -->
+        <section id="profile" class="section-fade mb-16">
+            <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="text-4xl mr-3">👤</span>
+                    ประวัติบุคคล
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="font-semibold text-purple-600 w-32">ชื่อ-นามสกุล:</span>
+                            <span>นางสาวดวงทิพย์ รับพรดี</span>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="font-semibold text-purple-600 w-32">ตำแหน่ง:</span>
+                            <span>อาจารย์ประจำสาขาวิชาเทคโนโลยีมัลติมีเดีย</span>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="font-semibold text-purple-600 w-32">สถานที่ทำงาน:</span>
+                            <span>คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏเทพสตรี</span>
+                        </div>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-lg">
+                        <h3 class="font-semibold text-purple-800 mb-3">ข้อมูลติดต่อ</h3>
+                        <div class="space-y-2 text-sm">
+                            <p><span class="font-medium">ที่อยู่:</span> ถ.นารายณ์มหาราช ต.ทะเลชุบศร อ.เมืองลพบุรี จ.ลพบุรี 15000</p>
+                            <p><span class="font-medium">โทรศัพท์:</span> 081 853 0961</p>
+                            <p><span class="font-medium">อีเมล:</span> duangthip.r@lawasri.tru.ac.th</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section-fade mb-16">
+            <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="text-4xl mr-3">🎓</span>
+                    ประวัติการศึกษา
+                </h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-purple-100">
+                                <th class="px-6 py-3 text-left font-semibold text-purple-800">ระดับ</th>
+                                <th class="px-6 py-3 text-left font-semibold text-purple-800">คุณวุฒิ</th>
+                                <th class="px-6 py-3 text-left font-semibold text-purple-800">สาขา</th>
+                                <th class="px-6 py-3 text-left font-semibold text-purple-800">สถานศึกษา</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="px-6 py-4">ปริญญาตรี</td>
+                                <td class="px-6 py-4">วท.บ.</td>
+                                <td class="px-6 py-4">วิทยาการคอมพิวเตอร์</td>
+                                <td class="px-6 py-4">สถาบันราชภัฏเทพสตรี</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="px-6 py-4">ปริญญาโท</td>
+                                <td class="px-6 py-4">วท.ม.</td>
+                                <td class="px-6 py-4">เทคโนโลยีสารสนเทศ</td>
+                                <td class="px-6 py-4">มหาวิทยาลัยรังสิต</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section-fade mb-16">
+            <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="text-4xl mr-3">💼</span>
+                    ประสบการณ์ในการทำงาน
+                </h2>
+                <div class="space-y-4">
+                    <div class="border-l-4 border-purple-500 pl-6 py-3 bg-purple-50 rounded-r-lg">
+                        <div class="font-semibold text-purple-800">ปี 2547</div>
+                        <div>อาจารย์ผู้สอนประจำสาขาวิชาวิทยาการคอมพิวเตอร์ คณะเทคโนโลยีสารสนเทศ</div>
+                    </div>
+                    <div class="border-l-4 border-purple-500 pl-6 py-3 bg-purple-50 rounded-r-lg">
+                        <div class="font-semibold text-purple-800">ปี 2549</div>
+                        <div>อาจารย์ผู้สอนประจำสาขาวิชาเทคโนโลยีสารสนเทศ คณะเทคโนโลยีสารสนเทศ</div>
+                    </div>
+                    <div class="border-l-4 border-purple-500 pl-6 py-3 bg-purple-50 rounded-r-lg">
+                        <div class="font-semibold text-purple-800">ปี 2547</div>
+                        <div>อาจารย์ผู้สอนประจำสาขาวิชาเทคโนโลยีมัลติมีเดีย คณะเทคโนโลยีสารสนเทศ</div>
+                    </div>
+                    <div class="border-l-4 border-orange-500 pl-6 py-3 bg-orange-50 rounded-r-lg">
+                        <div class="font-semibold text-orange-800">ปี 2560</div>
+                        <div>รับตำแหน่งหัวหน้าสาขาวิชาเทคโนโลยีมัลติมีเดีย คณะเทคโนโลยีสารสนเทศ</div>
+                    </div>
+                    <div class="border-l-4 border-green-500 pl-6 py-3 bg-green-50 rounded-r-lg">
+                        <div class="font-semibold text-green-800">ปี 2564</div>
+                        <div>รับตำแหน่งรองคณบดีฝ่ายกิจการนักศึกษา คณะเทคโนโลยีสารสนเทศ</div>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-6 py-3 bg-blue-50 rounded-r-lg">
+                        <div class="font-semibold text-blue-800">ปี 2568</div>
+                        <div>อาจารย์ผู้สอนประจำสาขาวิชาเทคโนโลยีมัลติมีเดีย คณะเทคโนโลยีสารสนเทศ</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lectures Section -->
+        <section id="lectures" class="section-fade mb-16">
+            <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="text-4xl mr-3">🎤</span>
+                    ประสบการณ์การบรรยาย
+                </h2>
+                
+                <!-- การพัฒนาครูและการศึกษา -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold text-purple-800 mb-4 flex items-center">
+                        <span class="text-3xl mr-2">👨‍🏫</span>
+                        การพัฒนาครูและการศึกษา
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg border-l-4 border-blue-500">
+                            <h4 class="font-semibold text-blue-800 mb-2">โครงการเสริมสร้างคุณลักษณะคนไทยที่พึงประสงค์</h4>
+                            <p class="text-sm text-blue-700">ณ โรงเรียนค่ายบางระจัน, ค่ายบางระจันวิทยาคม, อินทร์บุรี, ท่าช้างวิทยาคาร</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-4 rounded-lg border-l-4 border-purple-500">
+                            <h4 class="font-semibold text-purple-800 mb-2">วิทยากรโครงการสัมมนาเชิงปฏิบัติการ</h4>
+                            <p class="text-sm text-purple-700">"ครูยุค New Normal"</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-neutral-50 to-neutral-100 p-4 rounded-lg border-l-4 border-neutral-500">
+                            <h4 class="font-semibold text-neutral-800 mb-2">โครงการพัฒนาครูและบุคลากร</h4>
+                            <p class="text-sm text-neutral-700">การสร้างสื่อการสอนด้วย CANVA ณ ศูนย์ส่งเสริมการเรียนรู้ระดับอำเภอชัยบาดาล</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-lg border-l-4 border-gray-500">
+                            <h4 class="font-semibold text-gray-800 mb-2">โครงการพัฒนาทักษะการสอนภาษาจีน</h4>
+                            <p class="text-sm text-gray-700">สำหรับผู้สอนในระดับประถมศึกษาโดยใช้สื่อมัลติมีเดีย</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- เทคโนโลยีและดิจิทัล -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold text-green-800 mb-4 flex items-center">
+                        <span class="text-3xl mr-2">💻</span>
+                        เทคโนโลยีและดิจิทัล
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-lg border-l-4 border-green-500">
+                            <h4 class="font-semibold text-green-800 mb-2">โครงการอบรมและสอบการรับรองมาตรฐาน</h4>
+                            <p class="text-sm text-green-700">IC3 Digital Literacy Certification</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-emerald-50 to-emerald-100 p-4 rounded-lg border-l-4 border-emerald-500">
+                            <h4 class="font-semibold text-emerald-800 mb-2">วิทยากรอบรมเชิงปฏิบัติการ</h4>
+                            <p class="text-sm text-emerald-700">เสริมสร้างความรู้ด้านเทคโนโลยีสารสนเทศ</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg border-l-4 border-blue-500">
+                            <h4 class="font-semibold text-blue-800 mb-2">โครงการ AI ทักษะด้านดิจิทัล</h4>
+                            <p class="text-sm text-blue-700">ณ ศูนย์ส่งเสริมการเรียนรู้ระดับอำเภอบ้านหมี่</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-teal-50 to-teal-100 p-4 rounded-lg border-l-4 border-teal-500">
+                            <h4 class="font-semibold text-teal-800 mb-2">การใช้ปัญญาประดิษฐ์ (AI) ในการทำงาน</h4>
+                            <p class="text-sm text-teal-700">ในสำนักงาน - ศูนย์ภาษามหาวิทยาลัยราชภัฏเทพสตรี</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-amber-50 to-amber-100 p-4 rounded-lg border-l-4 border-amber-500">
+                            <h4 class="font-semibold text-amber-800 mb-2">วิทยากรการใช้งาน Google Calendar</h4>
+                            <p class="text-sm text-amber-700">ร่วมกับ Application Line ณ กองวิจัยพัฒนาและเทคโนโลยี</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-slate-50 to-slate-100 p-4 rounded-lg border-l-4 border-slate-500">
+                            <h4 class="font-semibold text-slate-800 mb-2">ทักษะการใช้งานอุปกรณ์เครื่องมือสื่อสาร</h4>
+                            <p class="text-sm text-slate-700">และรู้เท่าทันสื่อเทคโนโลยี</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- มัลติมีเดียและการออกแบบ -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold text-orange-800 mb-4 flex items-center">
+                        <span class="text-3xl mr-2">🎨</span>
+                        มัลติมีเดียและการออกแบบ
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-gradient-to-r from-indigo-50 to-indigo-100 p-4 rounded-lg border-l-4 border-indigo-500">
+                            <h4 class="font-semibold text-indigo-800 mb-2">วิทยากรอบรมการนำเสนอผลงานนักศึกษา</h4>
+                            <p class="text-sm text-indigo-700">ด้วยโปรแกรม FlipAlbum</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-lime-50 to-lime-100 p-4 rounded-lg border-l-4 border-lime-500">
+                            <h4 class="font-semibold text-lime-800 mb-2">วิทยากรการฝึกอบรม</h4>
+                            <p class="text-sm text-lime-700">การใช้โปรแกรมแอนิเมชัน 3 มิติ</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-sky-50 to-sky-100 p-4 rounded-lg border-l-4 border-sky-500">
+                            <h4 class="font-semibold text-sky-800 mb-2">วิทยากรการฝึกอบรม</h4>
+                            <p class="text-sm text-sky-700">การใช้โปรแกรม ZAPPAR</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-zinc-50 to-zinc-100 p-4 rounded-lg border-l-4 border-zinc-500">
+                            <h4 class="font-semibold text-zinc-800 mb-2">โครงการอบรมเชิงปฏิบัติการออกแบบสื่อด้วย AI</h4>
+                            <p class="text-sm text-zinc-700">สำหรับครูผู้สอนนักเรียนระดับประถมศึกษาและปฐมวัย</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-yellow-50 to-yellow-100 p-4 rounded-lg border-l-4 border-yellow-500">
+                            <h4 class="font-semibold text-yellow-800 mb-2">วิทยากรอบรมเชิงปฏิบัติการ</h4>
+                            <p class="text-sm text-yellow-700">"ความรักสามัคคีเพื่อสู้ภัยโควิด" 3บุรี</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-cyan-50 to-cyan-100 p-4 rounded-lg border-l-4 border-cyan-500">
+                            <h4 class="font-semibold text-cyan-800 mb-2">วิทยากรโครงการเตรียมความพร้อม</h4>
+                            <p class="text-sm text-cyan-700">สำหรับนักศึกษาสาขาเทคโนโลยีมัลติมีเดีย</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- การพัฒนาชุมชนและธุรกิจ -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold text-red-800 mb-4 flex items-center">
+                        <span class="text-3xl mr-2">🏘️</span>
+                        การพัฒนาชุมชนและธุรกิจ
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-gradient-to-r from-pink-50 to-pink-100 p-4 rounded-lg border-l-4 border-pink-500">
+                            <h4 class="font-semibold text-pink-800 mb-2">วิทยากรหัวข้อ: ขายของออนไลน์</h4>
+                            <p class="text-sm text-pink-700">จัดโดยพัฒนาชุมชน อำเภอท่าวุ้ง</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-violet-50 to-violet-100 p-4 rounded-lg border-l-4 border-violet-500">
+                            <h4 class="font-semibold text-violet-800 mb-2">วิทยากรบรรยายเรื่องการเลือกใช้ social network</h4>
+                            <p class="text-sm text-violet-700">เพื่อส่งเสริมการขายผลิตภัณฑ์ในชุมชน อำเภอท่าวุ้ง</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-rose-50 to-rose-100 p-4 rounded-lg border-l-4 border-rose-500">
+                            <h4 class="font-semibold text-rose-800 mb-2">วิทยากรออกแบบผลิตภัณฑ์และอาหารพื้นถิ่น</h4>
+                            <p class="text-sm text-rose-700">ต.เขาสมอคอน อ.ท่าวุ้ง จ.ลพบุรี</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-red-50 to-red-100 p-4 rounded-lg border-l-4 border-red-500">
+                            <h4 class="font-semibold text-red-800 mb-2">โครงการถ่ายทอดองค์ความรู้</h4>
+                            <p class="text-sm text-red-700">เครื่องอบแห้งพลังงานแสงอาทิตย์สู่ชุมชน</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- การเกษตรและสมุนไพร -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold text-green-800 mb-4 flex items-center">
+                        <span class="text-3xl mr-2">🌱</span>
+                        การเกษตรและสมุนไพร
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-lg border-l-4 border-green-500">
+                            <h4 class="font-semibold text-green-800 mb-2">โครงการสร้างศักยภาพและถ่ายทอดนวัตกรรม</h4>
+                            <p class="text-sm text-green-700">ทางการเกษตร</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-emerald-50 to-emerald-100 p-4 rounded-lg border-l-4 border-emerald-500">
+                            <h4 class="font-semibold text-emerald-800 mb-2">วิทยากรอบรมให้องค์ความรู้ด้านการขายผลิตภัณฑ์</h4>
+                            <p class="text-sm text-emerald-700">บนระบบออนไลน์ - โครงการน้ำสลัดจากผลมัลเบอร์</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-lime-50 to-lime-100 p-4 rounded-lg border-l-4 border-lime-500">
+                            <h4 class="font-semibold text-lime-800 mb-2">โครงการถ่ายทอดองค์ความรู้และส่งเสริมทักษะ</h4>
+                            <p class="text-sm text-lime-700">การแปรรูปสมุนไพรด้วยเทคโนโลยีและนวัตกรรม</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- การดูแลผู้สูงอายุและสังคม -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold text-indigo-800 mb-4 flex items-center">
+                        <span class="text-3xl mr-2">👴</span>
+                        การดูแลผู้สูงอายุและสังคม
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-gradient-to-r from-stone-50 to-stone-100 p-4 rounded-lg border-l-4 border-stone-500">
+                            <h4 class="font-semibold text-stone-800 mb-2">โครงการบริบาลและคุ้มครองสิทธิผู้สูงอายุ</h4>
+                            <p class="text-sm text-stone-700">การป้องกันภัยอาชญากรรมทางเทคโนโลยีสำหรับผู้สูงอายุ</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg border-l-4 border-orange-500">
+                            <h4 class="font-semibold text-orange-800 mb-2">วิทยากรสัมมนาเชิงปฏิบัติการ</h4>
+                            <p class="text-sm text-orange-700">"บอร์ดเกมส์ Sim Democracy"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-fade">
+            <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="text-4xl mr-3">📞</span>
+                    ติดต่อ
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3 p-4 bg-purple-50 rounded-lg">
+                            <span class="text-2xl">📍</span>
+                            <div>
+                                <div class="font-semibold text-purple-800">ที่อยู่</div>
+                                <div class="text-sm">คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏเทพสตรี<br>
+                                ถ.นารายณ์มหาราช ต.ทะเลชุบศร อ.เมืองลพบุรี จ.ลพบุรี 15000</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3 p-4 bg-blue-50 rounded-lg">
+                            <span class="text-2xl">📱</span>
+                            <div>
+                                <div class="font-semibold text-blue-800">โทรศัพท์</div>
+                                <div class="text-sm">081 853 0961</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3 p-4 bg-green-50 rounded-lg">
+                            <span class="text-2xl">✉️</span>
+                            <div>
+                                <div class="font-semibold text-green-800">อีเมล</div>
+                                <div class="text-sm">duangthip.r@lawasri.tru.ac.th</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3 p-4 bg-blue-50 rounded-lg">
+                            <span class="text-2xl">📘</span>
+                            <div>
+                                <div class="font-semibold text-blue-800">Facebook</div>
+                                <a href="https://www.facebook.com/katopja" target="_blank" class="text-sm text-blue-600 hover:text-blue-800 underline">facebook.com/katopja</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-100 to-blue-100 p-6 rounded-lg">
+                        <h3 class="font-bold text-purple-800 mb-4">ความเชี่ยวชาญ</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-white px-3 py-1 rounded-full text-sm font-medium text-purple-700">เทคโนโลยีมัลติมีเดีย</span>
+                            <span class="bg-white px-3 py-1 rounded-full text-sm font-medium text-blue-700">วิทยาการคอมพิวเตอร์</span>
+                            <span class="bg-white px-3 py-1 rounded-full text-sm font-medium text-green-700">เทคโนโลยีสารสนเทศ</span>
+                            <span class="bg-white px-3 py-1 rounded-full text-sm font-medium text-orange-700">การสอนเทคโนโลยี</span>
+                            <span class="bg-white px-3 py-1 rounded-full text-sm font-medium text-red-700">การพัฒนาสื่อดิจิทัล</span>
+                            <span class="bg-white px-3 py-1 rounded-full text-sm font-medium text-indigo-700">AI และนวัตกรรม</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-  </div>
-</body>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-16">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-lg mb-2">อาจารย์ดวงทิพย์ รับพรดี</p>
+            <p class="opacity-80">คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏเทพสตรี</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            const navHeight = 80;
+            const elementPosition = element.offsetTop - navHeight;
+            
+            window.scrollTo({
+                top: elementPosition,
+                behavior: 'smooth'
+            });
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections with fade animation
+        document.querySelectorAll('.section-fade').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = ['profile', 'education', 'experience', 'lectures', 'contact'];
+            const navButtons = document.querySelectorAll('.nav-btn');
+            
+            let current = '';
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = sectionId;
+                }
+            });
+            
+            navButtons.forEach(btn => {
+                btn.classList.remove('text-purple-600', 'font-semibold');
+                btn.classList.add('text-gray-700');
+            });
+            
+            if (current) {
+                const activeBtn = document.querySelector(`[onclick="scrollToSection('${current}')"]`);
+                if (activeBtn) {
+                    activeBtn.classList.remove('text-gray-700');
+                    activeBtn.classList.add('text-purple-600', 'font-semibold');
+                }
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975883be52a78940',t:'MTc1NjI2NTY4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
